@@ -3,7 +3,7 @@ int totalTouches = 0;
 int O=200;
 void setup()  
 {    
-  mob = new Bacteria[45];
+  mob = new Bacteria[42];
   for (int i = 0; i<mob.length; i++) {
     mob[i] = new Bacteria();
   }
