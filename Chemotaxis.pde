@@ -33,7 +33,7 @@ void draw()
   }
   if(totalTouches>2000){
     fill(255,0,0);
-   text("Touches: 2000; Try Again :D", 215, 470);}
+   text("Touches: 2000", 215, 470);}
    else{
    fill(0);
   text("Touches: " + totalTouches, 215, 470);}
