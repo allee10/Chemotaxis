@@ -1,25 +1,30 @@
 Bacteria [] mob;
 int totalTouches = 0;
 int O=200;
-void setup()  
-{    
+int[] dead= new int [42];
+int w=0;
+
+void setup()
+{
   mob = new Bacteria[42];
   for (int i = 0; i<mob.length; i++) {
     mob[i] = new Bacteria();
+    dead[i]=0;
   }
   size(500, 500);
   frameRate(8);
-}  
-void draw()  
-{    
+}
+void draw()
+{
   background(255);
   fill(255);
   noStroke();
   for (int i = 0; i < mob.length; i++)
   {
+    if (dead[i]==0){
     mob[i].move();
-    mob[i].hit();
-    mob[i].show();
+    mob[i].hit(i);
+    mob[i].show();}
   }
   for (int i = 0; i < mob.length; i++)
   {
@@ -31,16 +36,27 @@ void draw()
       }
     }
   }
-  if(totalTouches>2000){
+ for (int i=0; i< dead.length;i++){
+   System.out.print(dead[i]);
+   if(dead[i]==1){
+   w++;}
+ }
+
+  if (w>=42){
+    fill(0);
+  text("GOOD JOB!! Reload page to play again!", 215, 495);
+  noLoop();}
+  else if(totalTouches>2000){
     fill(255,0,0);
-   text("Touches: 2000", 215, 470);}
+   text("Touches: 2000; Try Again :D", 215, 495);}
    else{
    fill(0);
-  text("Touches: " + totalTouches, 215, 470);}
-  
+  text("Touches: " + totalTouches, 215, 495);}
+w = 0;
 }
-class Bacteria    
-{    
+
+class Bacteria
+{
   int myX, myY, myColor;
   Bacteria()
   {
@@ -67,10 +83,15 @@ class Bacteria
   {
     fill((int)(Math.random()*225),(int)(Math.random()*225),(int)(Math.random()*225),myColor);
     ellipse((float)myX, (float)myY, 30, 30);
-  }  
-  void hit() {
-    if (dist(mouseX, mouseY, myX, myY)<=30) {
-      myColor=myColor-40;
-    }
   }
-}  
+  void hit(int i) {
+    if (dist(mouseX, mouseY, myX, myY)<=30) {
+      myColor=myColor-300;
+    }
+    if (myColor<=0){
+      System.out.print(myColor);
+    dead[i]= 1;
+    }
+    
+  }
+}
