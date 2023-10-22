@@ -45,7 +45,7 @@ void draw()
   if (w>=42){
     fill(0);
   text("GOOD JOB!! Reload page to play again!", 215, 495);
-  noLoop();}
+  }
   else if(totalTouches>2000){
     fill(255,0,0);
    text("Touches: 2000; Try Again :D", 215, 495);}
