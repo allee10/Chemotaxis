@@ -79,7 +79,7 @@ class Bacteria
   }  
   void hit() {
     if (dist(mouseX, mouseY, myX, myY)<=30) {
-      myColor=myColor-300;
+      myColor=myColor-30;
     }
   }
 }  
