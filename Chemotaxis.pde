@@ -91,7 +91,6 @@ class Bacteria
     if (myColor<=0){
       System.out.print(myColor);
     dead[i]= 1;
-    }
-    
+    } 
   }
 }
