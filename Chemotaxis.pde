@@ -86,7 +86,6 @@ class Bacteria
   }
   void hit(int i) {
     if (dist(mouseX, mouseY, myX, myY)<=30) {
-      myColor=myColor-300;
     }
     if (myColor<=0){
       System.out.print(myColor);
